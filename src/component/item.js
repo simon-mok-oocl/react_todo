@@ -1,3 +1,5 @@
+import '../style/item.css';
+
 function Item(props)
 {
 	return(

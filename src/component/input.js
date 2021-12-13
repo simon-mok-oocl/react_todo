@@ -1,4 +1,5 @@
-import { useRef } from 'react'
+import { useRef } from 'react';
+import '../style/input.css';
 
 function Input(props)
 {
