@@ -1,9 +1,17 @@
+import { useRef } from 'react'
+
 function Input(props)
 {
+	const todoTextRef = useRef(null);
+	function handleNewItem()
+	{
+		console.log(todoTextRef.current.value);
+	}
+
 	return(
 		<div>
-			<input type='text'></input>
-			<input type='submit' value='Add Item'></input>
+			<input ref={ todoTextRef } type='text'></input>
+			<input type='submit' onClick={ handleNewItem } value='Add Item'></input>
 		</div>
 	);
 }
