@@ -11,10 +11,8 @@ function ItemContainer(props)
 			} 
 		, [props.noItems]);
 
-	return toRender.map(item => <li>{item}</li>)
+	return toRender.map(item => <Item todo={item}></Item>)
 
-	//const reptiles = ["alligator", "snake", "lizard"];
-  	//return reptiles.map((reptile) => <li>{reptile}</li>);
 }
 
 export default ItemContainer
