@@ -1,10 +1,11 @@
 import logo from './logo.svg';
 import Item from './component/item.js'
+import Input from './component/input.js'
 import './App.css';
 
 function App() {
   return (
-	  <Item todo="to do item1"></Item>
+	  <Input></Input>
   );
 }
 
