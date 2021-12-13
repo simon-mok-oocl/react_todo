@@ -3,9 +3,10 @@ import { useRef } from 'react'
 function Input(props)
 {
 	const todoTextRef = useRef(null);
+
 	function handleNewItem()
 	{
-		console.log(todoTextRef.current.value);
+		props.addTodoItem(todoTextRef.current.value)
 	}
 
 	return(
