@@ -12,7 +12,11 @@ p{
 input[type=button]{
 	background-color: transparent;
 	border: none;
-	align-self: right;
+	float: right;
+	margin-right: 5px;
 }
 
-button.link { background:none; border:none; }
+button.link {
+	 background:none;
+	  border:none; 
+}
