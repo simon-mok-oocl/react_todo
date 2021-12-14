@@ -13,7 +13,7 @@ function todoReducer(state={todoList:[]} , action)
             useItem = state.todoList.map(
                 function(item , index)
                 {
-                    if(item.id == action.payload)
+                    if(item.id === action.payload)
                         item.done = ! item.done;
 
                     return item;
@@ -26,7 +26,7 @@ function todoReducer(state={todoList:[]} , action)
             useItem = state.todoList.filter(
                 function(item , index)
                 {
-                    if(item.id != action.payload)
+                    if(item.id !== action.payload)
                         return true;
                     return false;
                 }
