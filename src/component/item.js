@@ -13,10 +13,15 @@ function Item(props)
 		dispatch({type: TOGGLE_DONE , payload: props.todo.id });
 	}
 
+	let description;
+	let crossButton = <input type="button" value="x" onClick={toggleDone}/>;
+
 	if(props.todo.done)
-		return <p><strike>{props.todo.description}</strike>  <input type="button" value="x" onClick={toggleDone}/> </p>;
+		description = <strike>{props.todo.description}</strike>;
 	else
-		return <p>{props.todo.description} <input type="button" value="x" onClick={toggleDone}/></p>;
+		description =  <span>{props.todo.description}</span>  ;
+
+	return [<p> <button class="link" onClick={toggleDone}>{ description }</button> {crossButton} </p>];
 }
 
 export default Item;
