@@ -3,15 +3,15 @@ import { useState , useEffect } from 'react'
 
 function ItemContainer(props)
 {
-	const [toRender , setToRender] = useState([]);
+	// const [toRender , setToRender] = useState([]);
 
-	useEffect( () => { 
-				console.log("todo list changed!!!");
-				setToRender(props.todoList);
-			} 
-		, [props.noItems]);
+	// useEffect( () => { 
+	// 			console.log(props.todoList);
+	// 		} 
+	// 	, [props.todoList]);
 
-	return toRender.map(item => <Item todo={item}></Item>)
+	return props.todoList.map( (item , index )=> <Item key={ index } todo={item}></Item>)
+	//return <div></div>;
 
 }
 
