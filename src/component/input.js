@@ -11,7 +11,6 @@ import { Input } from 'antd';
 
 function InputForm(props)
 {
-	const todoTextRef = useRef(null);
 	const dispatch = useDispatch();
 	const [inputText , setInputText] = useState();
 
@@ -28,7 +27,6 @@ function InputForm(props)
 
 	return(
 		<div>
-			{/* <input ref={ todoTextRef } type='text'></input> */}
 			<Input onChange={updateInputText}></Input>
 			<Button type="primary" onClick={ handleNewItem } >Add Item</Button>
 		</div>

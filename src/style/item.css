@@ -12,11 +12,20 @@ p{
 input[type=button]{
 	background-color: transparent;
 	border: none;
-	float: right;
-	margin-right: 5px;
 }
 
 button.link {
 	 background:none;
 	  border:none; 
+}
+
+.Button{
+	background-color: transparent;
+	border: none;
+}
+
+
+.item-button-group{
+	float:right;
+	margin-right: 5px;
 }

@@ -1,27 +1,66 @@
 import '../style/item.css';
 import { useDispatch } from 'react-redux';
-import { DELETE_TODO_ITEM, TOGGLE_DONE } from '../constant/constant';
+import { useState } from 'react';
+import { DELETE_TODO_ITEM, TOGGLE_DONE , UPDATE_TODO_DESCRIPTION } from '../constant/constant';
 import { deleteTodo, updatTodo } from '../api/todos';
+
+import { Button } from 'antd';
+import { Modal } from 'antd';
+import { Input } from 'antd';
 
 function Item(props)
 {
 	const dispatch = useDispatch();
+	const [editModalVisible , setEditmodalVisible] = useState(false);
+	const [newTodoDescripton , setNewTodoDescription] = useState();
 
 	function toggleDone()
 	{
 		let patch = {description: props.todo.description , done: !props.todo.description.done};
 		let id = props.todo.id;
 		updatTodo(id , patch)
-			.then(
-					dispatch({type: TOGGLE_DONE , payload: props.todo.id }));
+			.then( (response) => (
+					dispatch( {type: TOGGLE_DONE , payload: response.data })));
 	}
 
 	function deleteItem()
 	{
 		let id = props.todo.id;
 		deleteTodo(id)
-			.then(
-					dispatch({type: DELETE_TODO_ITEM , payload: props.todo.id }));
+			.then( (response) => (
+					dispatch({type: DELETE_TODO_ITEM , payload: response.data })));
+	}
+
+	function editTodoDescription()
+	{
+		let id = props.todo.id;
+		
+		updatTodo(id , { description: newTodoDescripton , done: props.todo.done})
+			.then( (response) => (
+				dispatch( {type: UPDATE_TODO_DESCRIPTION , payload: response.data })
+			));
+	}
+
+	function showEditPopup()
+	{
+		setEditmodalVisible(true);
+	}
+
+	function hideEditPopup()
+	{
+		setEditmodalVisible(false);
+	}
+
+	function handleEdit()
+	{
+		console.log("handle edit " + newTodoDescripton);
+		editTodoDescription();
+		setEditmodalVisible(false);
+	}
+
+	function getNewDescription(event)
+	{
+		setNewTodoDescription(event.target.value);
 	}
 
 	let description;
@@ -33,7 +72,16 @@ function Item(props)
 
 	return <p>  
 					<button className="link" onClick={toggleDone}>{ description }</button>
-					 <input type="button" value="x" onClick={deleteItem}/>
+
+					<div class="item-button-group">
+						<Button type="link" onClick={showEditPopup}>Edit</Button>
+						<span> | </span>
+						<Button type="link" onClick={deleteItem}>Delete</Button>
+					</div>
+
+					<Modal title="Edit Todo" visible={editModalVisible} onOk={handleEdit} onCancel={hideEditPopup}>
+						<Input onChange={getNewDescription}></Input>
+					</Modal>
 			</p>;
 }
 

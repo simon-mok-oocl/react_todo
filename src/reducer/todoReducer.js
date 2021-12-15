@@ -1,5 +1,5 @@
 import { addToDo } from "../api/todos";
-import { ADD_TODO_ITEM, DELETE_TODO_ITEM, TOGGLE_DONE } from "../constant/constant";
+import { ADD_TODO_ITEM, DELETE_TODO_ITEM, TOGGLE_DONE  , UPDATE_TODO_DESCRIPTION} from "../constant/constant";
 import { INIT_TODO } from "../constant/constant";
 
 function todoReducer(state={todoList:[]} , action)
@@ -16,7 +16,7 @@ function todoReducer(state={todoList:[]} , action)
             useItem = state.todoList.map(
                 function(item )
                 {
-                    if(item.id === action.payload)
+                    if(item.id === action.payload.id)
                         item.done = ! item.done;
 
                     return item;
@@ -29,10 +29,23 @@ function todoReducer(state={todoList:[]} , action)
             useItem = state.todoList.filter(
                 function(item )
                 {
-                    return item.id !== action.payload;
+                    return item.id !== action.payload.id;
                 }
 
             )
+            return {...state , todoList: useItem};
+        case UPDATE_TODO_DESCRIPTION:
+            useItem = state.todoList.map(
+                function(item)
+                {
+                    if(item.id === action.payload.id)
+                        {
+                            item.description = action.payload.description;
+                        }
+                    return item;
+                }
+            )
+
             return {...state , todoList: useItem};
         default:
             return state;
