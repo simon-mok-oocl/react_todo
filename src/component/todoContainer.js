@@ -1,4 +1,4 @@
-import Input from './input.js'
+import InputForm from './input.js'
 import ItemContainer from './itemContainer.js'
 
 import { useDispatch, useSelector} from 'react-redux';
@@ -17,7 +17,7 @@ function TodoContainer()
 	return(
 		<div>
 			<ItemContainer todoList={ todos } ></ItemContainer>
-			<Input></Input>
+			<InputForm></InputForm>
 		</div>
 	);
 }
