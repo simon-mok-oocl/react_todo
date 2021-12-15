@@ -26,7 +26,7 @@ function Item(props)
 	else
 		description =  <span>{props.todo.description}</span>  ;
 
-	return [<p> <button class="link" onClick={toggleDone}>{ description }</button> {crossButton} </p>];
+	return [<p key={ props.todo.id }>  <button class="link" onClick={toggleDone}>{ description }</button> {crossButton} </p>];
 }
 
 export default Item;
