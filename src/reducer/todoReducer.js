@@ -1,4 +1,5 @@
 import { ADD_TODO_ITEM, DELETE_TODO_ITEM, TOGGLE_DONE } from "../constant/constant";
+import { INIT_TODO } from "../constant/constant";
 
 function todoReducer(state={todoList:[]} , action)
 {
@@ -6,6 +7,8 @@ function todoReducer(state={todoList:[]} , action)
 
     switch(action.type)
     {
+        case INIT_TODO:
+            return {...state , todoList: action.payload};
         case ADD_TODO_ITEM:
             return {...state , todoList: [...state.todoList , action.payload] };
         case TOGGLE_DONE:

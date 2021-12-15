@@ -8,7 +8,7 @@ function DoneList() {
     return (
         todoList.filter((item) => item.done)
         .map(
-            (item) => <p>{item.description}</p>
+            (item) => <p key={item.id}>{item.description}</p>
         )
     );
 }
