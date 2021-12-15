@@ -1,5 +1,5 @@
-import InputForm from './input.js'
-import ItemContainer from './itemContainer.js'
+import InputForm from './Input.js'
+import ItemContainer from './ItemContainer.js'
 
 import { useDispatch, useSelector} from 'react-redux';
 import { useEffect } from 'react';

@@ -1,9 +1,9 @@
 import logo from './logo.svg';
-import Item from './component/item.js'
-import Input from './component/input.js'
-import DoneList from './component/doneList.js'
-import PendingList from './component/pendingList.js'
-import TodoContainer from './component/todoContainer.js'
+import Item from './component/Item.js'
+import Input from './component/Input.js'
+import DoneList from './component/DoneList.js'
+import PendingList from './component/PendingList.js'
+import TodoContainer from './component/TodoContainer.js'
 import './App.css';
 import {useEffect} from 'react'
 import {getTodo} from './api/todos.js'
