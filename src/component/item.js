@@ -70,10 +70,10 @@ function Item(props)
 	else
 		description =  <span>{props.todo.description}</span>  ;
 
-	return <p>  
+	return <div className="item-display-group">  
 					<button className="link" onClick={toggleDone}>{ description }</button>
 
-					<div class="item-button-group">
+					<div className="item-button-group">
 						<Button type="link" onClick={showEditPopup}>Edit</Button>
 						<span> | </span>
 						<Button type="link" onClick={deleteItem}>Delete</Button>
@@ -82,7 +82,7 @@ function Item(props)
 					<Modal title="Edit Todo" visible={editModalVisible} onOk={handleEdit} onCancel={hideEditPopup}>
 						<Input onChange={getNewDescription}></Input>
 					</Modal>
-			</p>;
+			</div>;
 }
 
 export default Item;
