@@ -4,14 +4,25 @@ import Input from './component/input.js'
 import DoneList from './component/doneList.js'
 import TodoContainer from './component/todoContainer.js'
 import './App.css';
+import {useEffect} from 'react'
+import {getTodo} from './api/todos.js'
+import { INIT_TODO } from './constant/constant';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
+import { useDispatch, useSelector } from 'react-redux';
 
 function App() {
+  const dispatch = useDispatch();
+
+	useEffect( () => {
+		getTodo().then( (response) => {dispatch( {type: INIT_TODO , payload: response.data})} );
+	}   );
+
+
   return (
     <div>
       <Router>
