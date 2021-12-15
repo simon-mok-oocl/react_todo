@@ -7,6 +7,7 @@ import './App.css';
 import {useEffect} from 'react'
 import {getTodo} from './api/todos.js'
 import { INIT_TODO } from './constant/constant';
+import { Menu } from 'antd';
 import {
   BrowserRouter as Router,
   Switch,
@@ -27,19 +28,19 @@ function App() {
     <div>
       <Router>
         <div>
-          <nav>
-            <ul>
-              <li>
+          <Menu style={{ width: 256 }}  mode="inline "className="menu">
+            <Menu.Item>
                 <Link to="/">Home</Link>
-              </li>
-              <li>
+            </Menu.Item>
+
+            <Menu.Item>
                 <Link to="/done">Done</Link>
-              </li>
-              <li>
+            </Menu.Item>
+
+            <Menu.Item>
                 <Link to="/users">Users</Link>
-              </li>
-            </ul>
-          </nav>
+            </Menu.Item>
+          </Menu>
 
           {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
