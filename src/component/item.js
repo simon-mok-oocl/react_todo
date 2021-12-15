@@ -1,11 +1,9 @@
 import '../style/item.css';
-import { useState , useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { DELETE_TODO_ITEM, TOGGLE_DONE } from '../constant/constant';
 
 function Item(props)
 {
-	// const [id , setId] = useState(0);
 	const dispatch = useDispatch();
 
 	function toggleDone()
@@ -19,14 +17,16 @@ function Item(props)
 	}
 
 	let description;
-	let crossButton = <input type="button" value="x" onClick={deleteItem}/>;
 
 	if(props.todo.done)
 		description = <strike>{props.todo.description}</strike>;
 	else
 		description =  <span>{props.todo.description}</span>  ;
 
-	return [<p key={ props.todo.id }>  <button class="link" onClick={toggleDone}>{ description }</button> {crossButton} </p>];
+	return <p>  
+					<button className="link" onClick={toggleDone}>{ description }</button>
+					 <input type="button" value="x" onClick={deleteItem}/>
+			</p>;
 }
 
 export default Item;

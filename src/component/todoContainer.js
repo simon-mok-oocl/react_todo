@@ -1,10 +1,9 @@
 import Input from './input.js'
 import ItemContainer from './itemContainer.js'
 
-import { useState } from 'react'
 import { useSelector} from 'react-redux';
 
-function TodoContainer(props)
+function TodoContainer()
 {
 
 	const todos = useSelector(state => state.todoList);

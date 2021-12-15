@@ -1,4 +1,3 @@
-import { act } from "react-dom/cjs/react-dom-test-utils.production.min";
 import { ADD_TODO_ITEM, DELETE_TODO_ITEM, TOGGLE_DONE } from "../constant/constant";
 
 function todoReducer(state={todoList:[]} , action)
@@ -11,7 +10,7 @@ function todoReducer(state={todoList:[]} , action)
             return {...state , todoList: [...state.todoList , action.payload] };
         case TOGGLE_DONE:
             useItem = state.todoList.map(
-                function(item , index)
+                function(item )
                 {
                     if(item.id === action.payload)
                         item.done = ! item.done;
@@ -24,11 +23,9 @@ function todoReducer(state={todoList:[]} , action)
             return {...state , todoList: useItem};
         case DELETE_TODO_ITEM:
             useItem = state.todoList.filter(
-                function(item , index)
+                function(item )
                 {
-                    if(item.id !== action.payload)
-                        return true;
-                    return false;
+                    return item.id !== action.payload;
                 }
 
             )
