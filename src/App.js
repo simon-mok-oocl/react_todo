@@ -2,6 +2,7 @@ import logo from './logo.svg';
 import Item from './component/item.js'
 import Input from './component/input.js'
 import DoneList from './component/doneList.js'
+import PendingList from './component/pendingList.js'
 import TodoContainer from './component/todoContainer.js'
 import './App.css';
 import {useEffect} from 'react'
@@ -38,7 +39,7 @@ function App() {
             </Menu.Item>
 
             <Menu.Item>
-                <Link to="/users">Users</Link>
+                <Link to="/pending">Pending</Link>
             </Menu.Item>
           </Menu>
 
@@ -50,6 +51,9 @@ function App() {
             </Route>
             <Route exact path="/done">
               <DoneList></DoneList>
+            </Route>
+            <Route exact path="/Pending">
+              <PendingList></PendingList>
             </Route>
           </Switch>
         </div>
