@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import Item from './component/Item.js'
-import Input from './component/Input.js'
+import Input from './component/InputForm.js'
 import DoneList from './component/DoneList.js'
 import PendingList from './component/PendingList.js'
 import TodoContainer from './component/TodoContainer.js'

@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import { Provider } from "react-redux"
 import { createStore } from "redux"
-import todoReducer from "./reducer/todoReducer.js"
+import todoReducer from "./reducer/TodoReducer.js"
 
 import 'antd/dist/antd.css';
 
